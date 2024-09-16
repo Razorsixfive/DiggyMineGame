@@ -1,0 +1,269 @@
+[gd_scene load_steps=7 format=3 uid="uid://jhdlqsokif5o"]
+
+[ext_resource type="Script" path="res://src/scripts/lobby.gd" id="1_ope1j"]
+[ext_resource type="PackedScene" uid="uid://dmj78c4r6bd8" path="res://src/scenes/Console.tscn" id="2_7yh7s"]
+[ext_resource type="FontFile" uid="uid://knb8u535cfkw" path="res://assets/fonts/montserrat.otf" id="2_ryevt"]
+[ext_resource type="LabelSettings" uid="uid://dmf71opknivqr" path="res://assets/fonts/montserrat_label_settings.tres" id="3_qby84"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ilulj"]
+font = ExtResource("2_ryevt")
+font_size = 19
+
+[sub_resource type="LabelSettings" id="LabelSettings_fsgch"]
+font = ExtResource("2_ryevt")
+font_size = 90
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+script = ExtResource("1_ope1j")
+
+[node name="Players" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -177.5
+offset_right = 126.0
+offset_bottom = 177.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="Label" type="Label" parent="Players"]
+visible = false
+layout_mode = 0
+offset_left = 26.0
+offset_top = 7.0
+offset_right = 229.0
+offset_bottom = 30.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+text = "Awaiting Players..."
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="Players"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 307.0
+offset_right = 193.0
+offset_bottom = 336.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+text = "START!"
+
+[node name="List" type="ItemList" parent="Players"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 37.0
+offset_right = 229.0
+offset_bottom = 296.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="PortForward" type="Label" parent="Players"]
+layout_mode = 0
+offset_left = -303.0
+offset_top = 375.0
+offset_bottom = 456.0
+theme_override_constants/line_spacing = 6
+text = "If you want non-LAN clients to connect,
+make sure the port 10567 in UDP
+is forwarded on your router."
+
+[node name="FindPublicIP" type="LinkButton" parent="Players"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 409.5
+offset_right = 467.0
+offset_bottom = 432.5
+text = "Find your public IP address"
+
+[node name="UserHelp" type="Label" parent="Players"]
+layout_mode = 0
+offset_left = -428.0
+offset_top = 2.0
+offset_right = -19.0
+offset_bottom = 366.0
+theme_override_constants/line_spacing = 6
+text = "Player movement: 
+A - Walk Left.  
+W - Up,  (Climbing, Swimming).
+D - Walk Right.  
+S - Down, (Climbing, Swimming).
+Space - Jump.       
+Mouse/Leftclick for diggin, ungrab items.
+Mouse/Rightclick for Placing tiles, Items.
+I - inventory.
+1,2,3,4 key will choose hotbar.
+F3 For Console(help for more info)"
+label_settings = SubResource("LabelSettings_ilulj")
+autowrap_mode = 3
+
+[node name="Connect" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -83.0
+offset_right = 139.0
+offset_bottom = 159.545
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="NameLabel" type="Label" parent="Connect"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 56.0
+offset_bottom = 25.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+text = "Name:"
+label_settings = ExtResource("3_qby84")
+
+[node name="Name" type="LineEdit" parent="Connect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 17.0
+offset_top = 38.0
+offset_right = 173.0
+offset_bottom = 69.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+text = "The Digger"
+
+[node name="Password" type="Label" parent="Connect"]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 75.5
+offset_right = 87.5
+offset_bottom = 98.5
+size_flags_horizontal = 2
+size_flags_vertical = 0
+text = "Password"
+label_settings = ExtResource("3_qby84")
+
+[node name="_password" type="LineEdit" parent="Connect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 15.5
+offset_top = 102.5
+offset_right = 171.5
+offset_bottom = 133.5
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="WorldName" type="Label" parent="Connect"]
+layout_mode = 0
+offset_left = 379.575
+offset_top = 75.5
+offset_right = 456.575
+offset_bottom = 98.5
+size_flags_horizontal = 2
+size_flags_vertical = 0
+text = "World name"
+label_settings = ExtResource("3_qby84")
+
+[node name="_WorldName" type="LineEdit" parent="Connect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 379.575
+offset_top = 102.5
+offset_right = 535.575
+offset_bottom = 133.5
+size_flags_horizontal = 2
+size_flags_vertical = 2
+text = "World name"
+
+[node name="IPLabel" type="Label" parent="Connect"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 137.0
+offset_right = 57.0
+offset_bottom = 160.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "IP:"
+label_settings = ExtResource("3_qby84")
+
+[node name="IPAddress" type="LineEdit" parent="Connect"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 165.0
+offset_right = 173.0
+offset_bottom = 196.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+text = "127.0.0.1"
+
+[node name="Host" type="Button" parent="Connect"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 102.0
+offset_right = 247.0
+offset_bottom = 133.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+text = "Host"
+
+[node name="Join" type="Button" parent="Connect"]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 165.0
+offset_right = 246.0
+offset_bottom = 196.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+text = "Join"
+
+[node name="ErrorLabel" type="Label" parent="Connect"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 201.0
+offset_right = 257.0
+offset_bottom = 224.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.820312, 0.291595, 0.291595, 1)
+
+[node name="NameLogo" type="Label" parent="Connect"]
+layout_mode = 0
+offset_left = -437.445
+offset_top = -199.75
+offset_right = 714.445
+offset_bottom = -39.75
+theme_override_constants/line_spacing = 6
+text = "Diggy Diggy Hole!"
+label_settings = SubResource("LabelSettings_fsgch")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ErrorDialog" type="AcceptDialog" parent="."]
+
+[node name="Console" parent="." instance=ExtResource("2_7yh7s")]
+visible = false
+follow_viewport_scale = 96.238
+
+[connection signal="pressed" from="Players/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Players/FindPublicIP" to="." method="_on_find_public_ip_pressed"]
+[connection signal="pressed" from="Connect/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Connect/Join" to="." method="_on_join_pressed"]

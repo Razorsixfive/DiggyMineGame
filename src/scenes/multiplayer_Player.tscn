@@ -1,0 +1,194 @@
+[gd_scene load_steps=14 format=3 uid="uid://de40jgu25sxfw"]
+
+[ext_resource type="Script" path="res://src/multiplayer_Player.gd" id="1_ybmsg"]
+[ext_resource type="FontFile" uid="uid://knb8u535cfkw" path="res://assets/fonts/montserrat.otf" id="3_g65an"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_sa4qq"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:current_anim")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ck76m"]
+load_path = "res://.godot/imported/charwalk.png-fe805f563cc0548f5b33c8270dda2f6f.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_syxst"]
+radius = 16.0
+
+[sub_resource type="Animation" id="2"]
+resource_name = "standing"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 4, 8, 12]
+}
+
+[sub_resource type="Animation" id="3"]
+resource_name = "stunned"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:stunned")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.28319, 0.0]
+}
+
+[sub_resource type="Animation" id="4"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 4, 8, 12]
+}
+
+[sub_resource type="Animation" id="5"]
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 5, 9, 13]
+}
+
+[sub_resource type="Animation" id="6"]
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 7, 11, 15]
+}
+
+[sub_resource type="Animation" id="7"]
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 6, 10, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yb83i"]
+_data = {
+"standing": SubResource("2"),
+"stunned": SubResource("3"),
+"walk_down": SubResource("4"),
+"walk_left": SubResource("5"),
+"walk_right": SubResource("6"),
+"walk_up": SubResource("7")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_8qppj"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MultiplayerPlayer" type="CharacterBody2D"]
+script = ExtResource("1_ybmsg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_sa4qq")
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_ck76m")
+offset = Vector2(-0.0750351, -6.23615)
+hframes = 4
+vframes = 4
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_syxst")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yb83i")
+}
+
+[node name="label" type="Label" parent="."]
+offset_left = -82.0
+offset_top = -35.0
+offset_right = 85.0
+offset_bottom = -14.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_g65an")
+theme_override_font_sizes/font_size = 16
+text = "Player 1"
+label_settings = SubResource("LabelSettings_8qppj")
+horizontal_alignment = 1

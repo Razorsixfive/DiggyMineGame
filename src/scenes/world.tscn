@@ -1,0 +1,752 @@
+[gd_scene load_steps=59 format=3 uid="uid://hscxutjgkf7c"]
+
+[ext_resource type="Script" path="res://src/world.gd" id="1_iqmpu"]
+[ext_resource type="Script" path="res://src/tileHight.gd" id="2_br2lg"]
+[ext_resource type="Script" path="res://src/itemList.gd" id="5_cyu04"]
+[ext_resource type="Script" path="res://item/Item_data.gd" id="6_knyln"]
+[ext_resource type="Script" path="res://src/shopList.gd" id="7_2w5oh"]
+[ext_resource type="Script" path="res://src/waterManger.gd" id="7_4qvhc"]
+[ext_resource type="Script" path="res://src/statusBar.gd" id="8_vieh2"]
+[ext_resource type="Texture2D" uid="uid://dsmebt8hgmupe" path="res://assets/sell.png" id="9_24mrq"]
+[ext_resource type="Script" path="res://src/chatBox.gd" id="9_dqsmp"]
+[ext_resource type="Script" path="res://src/handSlot.gd" id="10_hdd7f"]
+[ext_resource type="Script" path="res://src/invertoryUi.gd" id="10_njl86"]
+[ext_resource type="PackedScene" uid="uid://dh7evinpgvs8x" path="res://item/uiInvertorySlot.tscn" id="11_uobk0"]
+[ext_resource type="Script" path="res://src/playerInfo.gd" id="12_5c108"]
+[ext_resource type="Script" path="res://src/shop.gd" id="12_8e25q"]
+[ext_resource type="Texture2D" uid="uid://c00ryw1vl3h7u" path="res://assets/items/drabinka.png" id="12_agkn7"]
+[ext_resource type="Texture2D" uid="uid://7fauqjlikbso" path="res://assets/items/Earth_1.png" id="12_lhbv8"]
+[ext_resource type="Texture2D" uid="uid://bsbl1cqp1ix2v" path="res://assets/items/Earth_1b.png" id="13_nyptn"]
+[ext_resource type="Texture2D" uid="uid://bdbb5wblwcw45" path="res://assets/items/1b_Coal_.png" id="13_w3rdw"]
+[ext_resource type="Texture2D" uid="uid://bdan34rsebfsr" path="res://assets/items/2b_Iron.png" id="14_56jqn"]
+[ext_resource type="Texture2D" uid="uid://5qtlqfgrx7gh" path="res://assets/items/Earth_2.png" id="14_wuiej"]
+[ext_resource type="Texture2D" uid="uid://55toulf37g2w" path="res://assets/items/Earth_3b.png" id="15_0cttp"]
+[ext_resource type="Texture2D" uid="uid://bana13eua3xqj" path="res://assets/tiles/ores.png" id="15_3kwgx"]
+[ext_resource type="Texture2D" uid="uid://b5wxfasyql4xb" path="res://assets/tiles/digLevel.png" id="17_veung"]
+[ext_resource type="Texture2D" uid="uid://snulvqjhm4a4" path="res://assets/tiles/ground.png" id="18_6gh7y"]
+[ext_resource type="Texture2D" uid="uid://e26mcfescpkc" path="res://assets/items/3b_Silver.png" id="19_2hsa3"]
+[ext_resource type="Texture2D" uid="uid://dauiawl5kkkgd" path="res://assets/items/4b_Gold.png" id="20_qlsxp"]
+[ext_resource type="Texture2D" uid="uid://c5527e0f0iwqv" path="res://assets/items/5b_Diamond.png" id="21_d2hmx"]
+[ext_resource type="Texture2D" uid="uid://k6xmxgq1x87e" path="res://assets/items/7d_Ruby.png" id="22_132tj"]
+[ext_resource type="Texture2D" uid="uid://c4ot851qur3lf" path="res://assets/items/9b_Copper.png" id="23_paxne"]
+[ext_resource type="Texture2D" uid="uid://dqjbpsawunm58" path="res://assets/items/8b_Uranium.png" id="24_s2ypi"]
+[ext_resource type="Texture2D" uid="uid://cmbv6ap1jj6ei" path="res://assets/items/Bomb.png" id="25_2burm"]
+[ext_resource type="Texture2D" uid="uid://bn883nfvni4ar" path="res://assets/items/air-tank.png" id="26_d4xdh"]
+[ext_resource type="Texture2D" uid="uid://bmpjwi3erkg1h" path="res://assets/tiles/water.png" id="32_pgrdp"]
+
+[sub_resource type="Resource" id="Resource_3uwlu"]
+script = ExtResource("2_br2lg")
+hight = 6
+atlastId = 5
+atlastPos = Vector2i(0, 1)
+
+[sub_resource type="Resource" id="Resource_jurek"]
+script = ExtResource("2_br2lg")
+hight = 7
+atlastId = 5
+atlastPos = Vector2i(1, 0)
+
+[sub_resource type="Resource" id="Resource_tjw8o"]
+script = ExtResource("2_br2lg")
+hight = 30
+atlastId = 5
+atlastPos = Vector2i(0, 2)
+
+[sub_resource type="Resource" id="Resource_s610k"]
+script = ExtResource("2_br2lg")
+hight = 100
+atlastId = 5
+atlastPos = Vector2i(2, 0)
+
+[sub_resource type="Resource" id="Resource_essou"]
+script = ExtResource("2_br2lg")
+hight = 150
+atlastId = 5
+atlastPos = Vector2i(1, 3)
+
+[sub_resource type="Resource" id="Resource_e2f2w"]
+script = ExtResource("6_knyln")
+name = "lose dirt"
+description = "dirt that has bene mind from the ground"
+stackSize = 64
+texture = ExtResource("12_lhbv8")
+sell = 1
+buy = 2
+placerble = true
+atlastId = 5
+atlastPos = Vector2i(1, 0)
+
+[sub_resource type="Resource" id="Resource_ycdmh"]
+script = ExtResource("6_knyln")
+name = "dirt"
+description = ""
+stackSize = 32
+texture = ExtResource("13_nyptn")
+sell = -1
+buy = 0
+placerble = true
+atlastId = 5
+atlastPos = Vector2i(1, 1)
+
+[sub_resource type="Resource" id="Resource_wce0l"]
+script = ExtResource("6_knyln")
+name = "packet dirt"
+description = ""
+stackSize = 32
+texture = ExtResource("14_wuiej")
+sell = -1
+buy = 0
+placerble = true
+atlastId = 5
+atlastPos = Vector2i(2, 0)
+
+[sub_resource type="Resource" id="Resource_uw7c6"]
+script = ExtResource("6_knyln")
+name = "super packet dirt"
+description = ""
+stackSize = 32
+texture = ExtResource("15_0cttp")
+sell = -1
+buy = 0
+placerble = true
+atlastId = 5
+atlastPos = Vector2i(0, 3)
+
+[sub_resource type="Resource" id="Resource_vjvwd"]
+script = ExtResource("6_knyln")
+name = "stairs"
+description = ""
+stackSize = 64
+texture = ExtResource("12_agkn7")
+sell = 30
+buy = 45
+placerble = true
+atlastId = 5
+atlastPos = Vector2i(3, 0)
+
+[sub_resource type="Resource" id="Resource_jabd5"]
+script = ExtResource("6_knyln")
+name = "coal"
+description = ""
+stackSize = 32
+texture = ExtResource("13_w3rdw")
+sell = 3
+buy = 4
+placerble = false
+atlastId = 0
+atlastPos = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_qk1jg"]
+script = ExtResource("6_knyln")
+name = "iron ore"
+description = ""
+stackSize = 32
+texture = ExtResource("14_56jqn")
+sell = 16
+buy = 0
+placerble = false
+atlastId = 0
+atlastPos = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_gtn01"]
+script = ExtResource("6_knyln")
+name = "silver ore"
+description = ""
+stackSize = 32
+texture = ExtResource("19_2hsa3")
+sell = -1
+buy = 0
+placerble = false
+atlastId = 0
+atlastPos = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_112w6"]
+script = ExtResource("6_knyln")
+name = "gold ore"
+description = ""
+stackSize = 32
+texture = ExtResource("20_qlsxp")
+sell = -1
+buy = 0
+placerble = false
+atlastId = 0
+atlastPos = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_shk7e"]
+script = ExtResource("6_knyln")
+name = "diamond"
+description = ""
+stackSize = 32
+texture = ExtResource("21_d2hmx")
+sell = -1
+buy = 0
+placerble = false
+atlastId = 0
+atlastPos = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_0dqme"]
+script = ExtResource("6_knyln")
+name = "ruby"
+description = ""
+stackSize = 32
+texture = ExtResource("22_132tj")
+sell = -1
+buy = 0
+placerble = false
+atlastId = 0
+atlastPos = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_nqv1e"]
+script = ExtResource("6_knyln")
+name = "copper ore"
+description = ""
+stackSize = 32
+texture = ExtResource("23_paxne")
+sell = -1
+buy = 0
+placerble = false
+atlastId = 0
+atlastPos = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_wa3up"]
+script = ExtResource("6_knyln")
+name = "uranium"
+description = ""
+stackSize = 32
+texture = ExtResource("24_s2ypi")
+sell = -1
+buy = 0
+placerble = false
+atlastId = 0
+atlastPos = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_i4x1g"]
+script = ExtResource("6_knyln")
+name = "boom"
+description = ""
+stackSize = 4
+texture = ExtResource("25_2burm")
+sell = -1
+buy = 0
+placerble = false
+atlastId = 0
+atlastPos = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_cyixe"]
+script = ExtResource("6_knyln")
+name = "air tank"
+description = ""
+stackSize = 1
+texture = ExtResource("26_d4xdh")
+sell = -1
+buy = 0
+placerble = false
+atlastId = 0
+atlastPos = Vector2i(0, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_frb65"]
+texture = ExtResource("15_3kwgx")
+texture_region_size = Vector2i(512, 512)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/custom_data_0 = 1
+0:0/0/custom_data_1 = 6
+0:0/0/custom_data_5 = "coal"
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/custom_data_0 = 3
+1:0/0/custom_data_1 = 7
+1:0/0/custom_data_5 = "iron"
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/custom_data_0 = 2
+2:0/0/custom_data_1 = 8
+2:0/0/custom_data_5 = "silver"
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/custom_data_0 = 2
+3:0/0/custom_data_1 = 9
+3:0/0/custom_data_5 = "gold"
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/custom_data_0 = 8
+0:1/0/custom_data_1 = 10
+0:1/0/custom_data_5 = "diamond"
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/custom_data_0 = 8
+1:1/0/custom_data_1 = 11
+1:1/0/custom_data_5 = "ruby"
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/custom_data_0 = 2
+2:1/0/custom_data_1 = 12
+2:1/0/custom_data_5 = "copper"
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/custom_data_0 = 4
+3:1/0/custom_data_1 = 13
+3:1/0/custom_data_5 = "uranium"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lcom"]
+texture = ExtResource("32_pgrdp")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/custom_data_2 = true
+0:0/0/custom_data_4 = true
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/custom_data_2 = true
+1:0/0/custom_data_4 = true
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/custom_data_2 = true
+2:0/0/custom_data_4 = true
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/custom_data_2 = true
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bwkpf"]
+resource_name = "digLevel"
+texture = ExtResource("17_veung")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d58pl"]
+texture = ExtResource("18_6gh7y")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/custom_data_0 = 1
+0:0/0/custom_data_3 = true
+0:0/0/custom_data_5 = "gras"
+0:0/0/custom_data_6 = true
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -256, 256, 256, 256, 256, -256)
+1:0/0/custom_data_0 = 1
+1:0/0/custom_data_1 = 1
+1:0/0/custom_data_4 = true
+1:0/0/custom_data_5 = "dirt1"
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -256, 256, 256, 256, 256, -256)
+2:0/0/custom_data_0 = 8
+2:0/0/custom_data_1 = 3
+2:0/0/custom_data_4 = true
+2:0/0/custom_data_5 = "dirt4"
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/custom_data_0 = 4
+3:0/0/custom_data_1 = 5
+3:0/0/custom_data_2 = true
+3:0/0/custom_data_3 = true
+3:0/0/custom_data_5 = "stair"
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -256, 256, 256, 256, 256, -256)
+3:1/0/custom_data_0 = 10
+3:1/0/custom_data_1 = 4
+3:1/0/custom_data_4 = true
+3:1/0/custom_data_5 = "dirt5"
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -256, 256, 256, 256, 256, -256)
+2:1/0/custom_data_0 = 4
+2:1/0/custom_data_1 = 2
+2:1/0/custom_data_4 = true
+2:1/0/custom_data_5 = "dirt2"
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -256, 256, 256, 256, 256, -256)
+1:1/0/custom_data_0 = 4
+1:1/0/custom_data_1 = 2
+1:1/0/custom_data_4 = true
+1:1/0/custom_data_5 = "dirt2"
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -256, 256, 256, 256, 256, -256)
+0:1/0/custom_data_0 = 1
+0:1/0/custom_data_1 = 1
+0:1/0/custom_data_4 = true
+0:1/0/custom_data_5 = "dirtTop"
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -256, 256, 256, 256, 256, -256)
+0:2/0/custom_data_0 = 6
+0:2/0/custom_data_1 = 2
+0:2/0/custom_data_4 = true
+0:2/0/custom_data_5 = "dirt3"
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -256, 256, 256, 256, 256, -256)
+1:2/0/custom_data_0 = 6
+1:2/0/custom_data_1 = 2
+1:2/0/custom_data_4 = true
+1:2/0/custom_data_5 = "dirt3"
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -256, 256, 256, 256, 256, -256)
+2:2/0/custom_data_0 = 16
+2:2/0/custom_data_4 = true
+2:2/0/custom_data_5 = "stone"
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -256, 256, 256, 256, 256, -256)
+3:2/0/custom_data_0 = 20
+3:2/0/custom_data_4 = true
+3:2/0/custom_data_5 = "stone"
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -256, 256, 256, 256, 256, -256)
+3:3/0/custom_data_0 = 60
+3:3/0/custom_data_4 = true
+3:3/0/custom_data_5 = "lava"
+2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -256, 256, 256, 256, 256, -256)
+2:3/0/custom_data_0 = 60
+2:3/0/custom_data_4 = true
+2:3/0/custom_data_5 = "stone"
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -256, 256, 256, 256, 256, -256)
+1:3/0/custom_data_0 = 10
+1:3/0/custom_data_1 = 4
+1:3/0/custom_data_4 = true
+1:3/0/custom_data_5 = "dirt5"
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -256, 256, 256, 256, 256, -256)
+0:3/0/custom_data_0 = 10
+0:3/0/custom_data_1 = 4
+0:3/0/custom_data_4 = true
+0:3/0/custom_data_5 = "dirt5"
+
+[sub_resource type="TileSet" id="TileSet_24aft"]
+tile_size = Vector2i(512, 512)
+physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "hp"
+custom_data_layer_0/type = 2
+custom_data_layer_1/name = "drop"
+custom_data_layer_1/type = 2
+custom_data_layer_2/name = "clime"
+custom_data_layer_2/type = 1
+custom_data_layer_3/name = "porous"
+custom_data_layer_3/type = 1
+custom_data_layer_4/name = "blockAir"
+custom_data_layer_4/type = 1
+custom_data_layer_5/name = "name"
+custom_data_layer_5/type = 4
+custom_data_layer_6/name = "needFlore"
+custom_data_layer_6/type = 1
+sources/4 = SubResource("TileSetAtlasSource_bwkpf")
+sources/5 = SubResource("TileSetAtlasSource_d58pl")
+sources/0 = SubResource("TileSetAtlasSource_frb65")
+sources/1 = SubResource("TileSetAtlasSource_2lcom")
+
+[node name="worldNode" type="Node2D"]
+script = ExtResource("1_iqmpu")
+xSize = 100
+ySize = 200
+groundHight = 5
+oreDestie = 0.2
+ground = Array[ExtResource("2_br2lg")]([SubResource("Resource_3uwlu"), SubResource("Resource_jurek"), SubResource("Resource_tjw8o"), SubResource("Resource_s610k"), SubResource("Resource_essou")])
+
+[node name="playerInfo" type="Node" parent="."]
+script = ExtResource("12_5c108")
+invtery = Array[Resource("res://item/invertory_slot.gd")]([null, null, null, null, null, null, null, null, null, null, null, null])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="playerInfo"]
+
+[node name="statusBar" type="PanelContainer" parent="playerInfo/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_vieh2")
+
+[node name="GridContainer" type="GridContainer" parent="playerInfo/CanvasLayer/statusBar"]
+layout_mode = 2
+
+[node name="hpBar" type="ProgressBar" parent="playerInfo/CanvasLayer/statusBar/GridContainer"]
+modulate = Color(1, 0.0909423, 0.0594643, 1)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+value = 50.0
+
+[node name="airBar" type="ProgressBar" parent="playerInfo/CanvasLayer/statusBar/GridContainer"]
+modulate = Color(0.260016, 0.479397, 1, 1)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+value = 50.0
+
+[node name="coin" type="Label" parent="playerInfo/CanvasLayer/statusBar/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "$:0"
+
+[node name="chatBox" type="PanelContainer" parent="playerInfo/CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 67.0
+grow_vertical = 0
+script = ExtResource("9_dqsmp")
+
+[node name="GridContainer" type="GridContainer" parent="playerInfo/CanvasLayer/chatBox"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="playerInfo/CanvasLayer/chatBox/GridContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+scroll_following = true
+
+[node name="LineEdit" type="LineEdit" parent="playerInfo/CanvasLayer/chatBox/GridContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="invertory" type="PanelContainer" parent="playerInfo/CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("10_njl86")
+
+[node name="GridContainer" type="GridContainer" parent="playerInfo/CanvasLayer/invertory"]
+layout_mode = 2
+
+[node name="coldBar" type="MarginContainer" parent="playerInfo/CanvasLayer/invertory/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="GridContainer" type="GridContainer" parent="playerInfo/CanvasLayer/invertory/GridContainer/coldBar"]
+visible = false
+layout_mode = 2
+columns = 4
+
+[node name="hotBar" type="MarginContainer" parent="playerInfo/CanvasLayer/invertory/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="GridContainer" type="GridContainer" parent="playerInfo/CanvasLayer/invertory/GridContainer/hotBar"]
+layout_mode = 2
+columns = 4
+
+[node name="UiInvertorySlot" parent="playerInfo/CanvasLayer/invertory/GridContainer/hotBar/GridContainer" instance=ExtResource("11_uobk0")]
+layout_mode = 2
+
+[node name="UiInvertorySlot2" parent="playerInfo/CanvasLayer/invertory/GridContainer/hotBar/GridContainer" instance=ExtResource("11_uobk0")]
+layout_mode = 2
+
+[node name="UiInvertorySlot3" parent="playerInfo/CanvasLayer/invertory/GridContainer/hotBar/GridContainer" instance=ExtResource("11_uobk0")]
+layout_mode = 2
+
+[node name="UiInvertorySlot4" parent="playerInfo/CanvasLayer/invertory/GridContainer/hotBar/GridContainer" instance=ExtResource("11_uobk0")]
+layout_mode = 2
+
+[node name="shop" type="PanelContainer" parent="playerInfo/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+script = ExtResource("12_8e25q")
+shopIcon = ExtResource("9_24mrq")
+
+[node name="GridContainer" type="GridContainer" parent="playerInfo/CanvasLayer/shop"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="playerInfo/CanvasLayer/shop/GridContainer"]
+visible = false
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="playerInfo/CanvasLayer/shop/GridContainer/MarginContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 8
+columns = 3
+
+[node name="UiInvertorySlot" parent="playerInfo/CanvasLayer/shop/GridContainer/MarginContainer/GridContainer" instance=ExtResource("11_uobk0")]
+layout_mode = 2
+myId = 0
+
+[node name="UiInvertorySlot2" parent="playerInfo/CanvasLayer/shop/GridContainer/MarginContainer/GridContainer" instance=ExtResource("11_uobk0")]
+layout_mode = 2
+myId = 1
+
+[node name="UiInvertorySlot3" parent="playerInfo/CanvasLayer/shop/GridContainer/MarginContainer/GridContainer" instance=ExtResource("11_uobk0")]
+layout_mode = 2
+myId = 2
+
+[node name="UiInvertorySlot13" parent="playerInfo/CanvasLayer/shop/GridContainer/MarginContainer/GridContainer" instance=ExtResource("11_uobk0")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="playerInfo/CanvasLayer/shop/GridContainer"]
+layout_mode = 2
+text = "open shop"
+
+[node name="handSlot" type="PanelContainer" parent="playerInfo/CanvasLayer"]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("10_hdd7f")
+
+[node name="TextureRect" type="TextureRect" parent="playerInfo/CanvasLayer/handSlot"]
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="playerInfo/CanvasLayer/handSlot"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "32"
+
+[node name="itemList" type="Node" parent="playerInfo"]
+script = ExtResource("5_cyu04")
+items = Array[ExtResource("6_knyln")]([SubResource("Resource_e2f2w"), SubResource("Resource_ycdmh"), SubResource("Resource_wce0l"), SubResource("Resource_uw7c6"), SubResource("Resource_vjvwd"), SubResource("Resource_jabd5"), SubResource("Resource_qk1jg"), SubResource("Resource_gtn01"), SubResource("Resource_112w6"), SubResource("Resource_shk7e"), SubResource("Resource_0dqme"), SubResource("Resource_nqv1e"), SubResource("Resource_wa3up"), SubResource("Resource_i4x1g"), SubResource("Resource_cyixe")])
+
+[node name="shopList" type="Node" parent="playerInfo"]
+script = ExtResource("7_2w5oh")
+items = Array[int]([4, 13, 14])
+
+[node name="waterManger" type="Node" parent="."]
+script = ExtResource("7_4qvhc")
+waterSleepSec = 0.7
+flowMin = 3
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(0.1, 0.1)
+tile_set = SubResource("TileSet_24aft")
+format = 2
+layer_0/name = "water"
+layer_0/navigation_enabled = false
+layer_1/name = "ground"
+layer_1/navigation_enabled = false
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "ore"
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "effect"
+layer_3/navigation_enabled = false
+layer_3/tile_data = PackedInt32Array()
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://src/scenes/multiplayer_Player.tscn")
+spawn_path = NodePath("../Players")
+spawn_limit = 16
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="0" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(112, 178)
+
+[node name="1" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(267, 176)
+
+[node name="2" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(177, 174)
+
+[node name="3" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(585, 111)
+
+[node name="4" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(1045, 119)
+
+[node name="5" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(605, 182)
+
+[node name="6" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(690, 117)
+
+[node name="7" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(1215, 63)
+
+[node name="8" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(330.96, 174.975)
+
+[node name="9" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(827, 212)
+
+[node name="10" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(863, 111)
+
+[node name="11" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(517.2, 172)
+
+[node name="12" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(1284, 60)
+
+[node name="13" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(384, 32)
+
+[node name="14" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(930, 180)
+
+[node name="15" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(412, 174)
+
+[node name="Players" type="Node2D" parent="."]
+
+[connection signal="text_submitted" from="playerInfo/CanvasLayer/chatBox/GridContainer/LineEdit" to="playerInfo/CanvasLayer/chatBox" method="_on_line_edit_text_submitted"]
+[connection signal="button_down" from="playerInfo/CanvasLayer/shop/GridContainer/Button" to="playerInfo/CanvasLayer/shop" method="_shopButon"]

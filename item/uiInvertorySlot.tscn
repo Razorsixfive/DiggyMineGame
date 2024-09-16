@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh7evinpgvs8x"]
+
+[ext_resource type="Script" path="res://src/slots.gd" id="1_23y1r"]
+
+[node name="UiInvertorySlot" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
+script = ExtResource("1_23y1r")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="count" type="Label" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "64"
+
+[connection signal="gui_input" from="." to="." method="_click_this_slot"]

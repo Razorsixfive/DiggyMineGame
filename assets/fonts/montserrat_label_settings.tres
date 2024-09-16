@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dmf71opknivqr"]
+
+[ext_resource type="FontFile" uid="uid://knb8u535cfkw" path="res://assets/fonts/montserrat.otf" id="1_mltdv"]
+
+[resource]
+font = ExtResource("1_mltdv")
+font_size = 15
