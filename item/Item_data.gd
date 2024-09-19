@@ -1,6 +1,7 @@
 extends Resource
 class_name ItemData
 
+# ---------- Exported Variables ----------
 @export var name: String = ""
 @export_multiline var description: String = ""
 @export var stackSize: int = 32

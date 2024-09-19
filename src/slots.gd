@@ -1,11 +1,12 @@
 extends PanelContainer
 
+# ---------- Onready Nodes ----------
 @onready var count = $count
 @onready var texture_rect = $MarginContainer/TextureRect
 @onready var margin_container = $MarginContainer
 
-@export var myId: int = -1;
-
+# ---------- Exported Variables ----------
+@export var myId: int = -1
 @export var itemId: int = 0
 @export var antal: int = 0:
 	set(newNumber):
@@ -31,15 +32,21 @@ extends PanelContainer
 		margin_container.add_theme_constant_override("margin_right", margin_value)
 		fousce = newState
 
-
+# ---------- Item Management ----------
+# Sets the item texture and count.
 func setItem(imag: Texture2D, itemId: int, itemCount: int = 1):
 	texture_rect.texture = imag
 	antal = itemCount
+
+# ---------- Click Handling ----------
+# Handles clicks on the slot and emits appropriate signals.
 func _click_this_slot(ev: InputEvent):
 	if ev.is_action_pressed("click"):
 		clicketLeft.emit(myId)
 	if ev.is_action_pressed("rightClick"):
 		clicketRight.emit(myId)
 
-signal clicketLeft(slotId:	int)
-signal clicketRight(slotId:	int)
+# ---------- Signals ----------
+signal clicketLeft(slotId: int)
+signal clicketRight(slotId: int)
+
